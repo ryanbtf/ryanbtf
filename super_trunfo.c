@@ -3,20 +3,19 @@
 int main(){
 
     //cria as variáveis
-    char estado1;
-    char estado2[20];
+    char estado1[50], estado2[50];
     char codigocarta1[50], codigocarta2[50]; 
     char nomecidade1[50], nomecidade2[50];
     int populacao1, populacao2;
     float area1, area2;
     float pib1, pib2;
     int pturisticos1, pturisticos2;
-
+    
     //printa as perguntas no terminal junto da entrada de dados
-    printf("Digite o estado da carta 1 (A - H): \n");
-    scanf("%c", &estado1);
+    printf("Digite o estado da carta 1 : \n");
+    scanf("%s", &estado1);
 
-    printf("Digite o estado da carta 2 (A - H): \n");
+    printf("Digite o estado da carta 2 : \n");
     scanf("%s", &estado2);
 
     printf("Digite o código da carta 1: (01-04)\n");
@@ -55,24 +54,38 @@ int main(){
     printf("Digite a quantidade de pontos turísticos da cidade 2: \n");
     scanf("%d", &pturisticos2);
 
+    //variaveis após o scanf 
+    //densidade populacional = população / area
+    float dp1 = (float) populacao1 / area1;
+    float dp2 = (float) populacao2 / area2;
+
+    //pib per capita = pib / população
+
+    float ppc1 = (float) pib1 / populacao1;
+    float ppc2 = (float) pib2 / populacao2;
+
     //printa as informações fornecidas pelo usuário no terminal
-    printf("\nInformações da carta 1: \n");
-    printf("\nEstado da carta: %c\n", estado1);
-    printf("Código da carta: %c%s\n", estado1, codigocarta1);
+    printf("\nInformações da carta 1:(A - H) \n");
+    printf("\nEstado da carta: %s\n", estado1);
+    printf("Código da carta: %s%s\n", estado1, codigocarta1);
     printf("Nome da cidade: %s\n", nomecidade1);
     printf("População: %d\n", populacao1);
     printf("Área(em km²): %.2f km²\n", area1);
     printf("PIB(Produto Interno Bruto): %.2f R$\n", pib1);
     printf("Quantidade de pontos turísticos na cidade: %d\n", pturisticos1);
+    printf("Densidade populacional: %.2f por km²\n", dp1);
+    printf("Pib Per Capita: %.2fR$\n", ppc1);
    
-    printf("\nInformações da carta 2: \n");
+    printf("\nInformações da carta 2:(A - H) \n");
     printf("\nEstado da carta: %s\n", estado2);
-    printf("Código da carta: %c%s\n", estado2, codigocarta2);
+    printf("Código da carta: %s%s\n", estado2, codigocarta2);
     printf("Nome da cidade: %s\n", nomecidade2);
     printf("População: %d\n", populacao2);
     printf("Área(em km²): %.2f km²\n", area2);
     printf("PIB(Produto Interno Bruto): %.2f R$\n", pib2);
     printf("Quantidade de pontos turísticos na cidade: %d\n", pturisticos2);
+    printf("Densidade populacional: %.2f por km²\n", dp2);
+    printf("Pib Per Capita: %.2fR$\n", ppc2);
 
     return 0;
 }
